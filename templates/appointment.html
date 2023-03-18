@@ -1,0 +1,207 @@
+
+{% include 'plane_dash.html' %}
+
+{% block body %}
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+   
+    
+       <!-- <div class = "jumbotron p-0">-->
+       
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+        
+        {% for message in messages %}
+        
+        <div class = "alert alert-success alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss = "alert" aria-label= "close">
+        
+                <span aria-hidden ="true">x</span>
+            </button>
+            {{message}}
+        
+        </div>
+        
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        
+           
+
+      
+        <form action = "/add_appointment" method="POST">
+            <div class="form-group">
+                
+                <label>Name:</label>
+                <input type="hidden" name="id" value="">
+                <input type="text" class="form-control" name="name" value=""  required ="1">
+
+            </div>
+
+            <div class="form-group">
+                
+                <label>Email:</label>
+                <input type="text" class="form-control" name="email"value= ""   required ="1">
+                
+            </div>
+    
+
+           
+
+            <div class="form-group">
+                
+                <label>Date:</label>
+                <input type="date" class="form-control" name="date" value="" required ="1">
+                
+            </div>
+
+            <div class="form-group">
+                <label>Doctor:</label>
+            
+
+               <select class="form-control" id="select" name="doctor">
+                
+                       
+                    {% for row in experts %}
+                   
+                    <option value="{{row.id}}">{{row.username}}, {{row.work}}-{{row.country}} </option>
+
+                   {% endfor %}
+               </select>
+               
+            </div>
+            <div class="rate">
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text">5 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text">4 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text">2 stars</label>
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text">1 star</label>
+              </div><br><br>
+      
+              
+
+            <div class="form-group">
+                
+                <button class="btn btn-primary" type="submit">Add</button>
+            </div>
+        </form>
+        
+
+        
+<style>
+       *{
+    margin: 0;
+    padding: 0;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    
+    }
+    
+    * {
+    box-sizing: border-box;
+    }
+    
+    /* Add padding to containers */
+    .container {
+    padding: 16px;
+    background-color: white;
+    }
+    
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    }
+    
+    input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+    }
+    
+    /* Overwrite default styles of hr */
+    hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+    }
+    
+    /* Set a style for the submit button */
+    .registerbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    }
+    
+    .registerbtn:hover {
+    opacity: 1;
+    }
+    
+    /* Add a blue text color to links */
+    a {
+    color: dodgerblue;
+    }
+    
+    /* Set a grey background color and center the text of the "sign in" section */
+    
+    </style>
+</main>
+
+
+
+
+
+
+
+{% endblock %}

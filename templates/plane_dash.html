@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+
+  
+ 
+
+    
+    <title></title>
+  </head>
+  <body> {%block body%}
+
+    
+    <nav class="navbar navbar-dark bg-info fixed-top flex-md-nowrap p-0 shadow">
+           <!-- Navbar content -->
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"> 
+          
+          <img src="{{url_for('static', filename ='img_avatar.png')}}" alt="" style="width:50px;border-radius: 50%;">
+          {{current_user.username}}
+          </a>
+       
+        <input type="text" class="form-control form-control-primary w-100" placeholder="search...">
+        <ul class=" navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" style="color: black;" onclick="return confirm('Confirm logout') " href="{{url_for('home')}}">logout</a>
+            </li>
+        </ul>
+     
+      </nav>
+      
+      <!--container-->
+      <div class="container-fluid">
+        <div class="row">
+            <div class  = "col-md-2 bg-info d-none d-md-block sidebar" style="color:white;">
+                <div class="left-sidebar">
+                    <ul class="nav flex-column sidebar-nav">
+                        <li class="nav-item">
+                        <a class="nav-link text-light" href="{{url_for('get_signin')}}">
+                          <i class ="fa fa-spinner fa-2x"></i> Dashboard
+                        </a>
+                        </li>
+
+                        <li class="nav-item">
+                          <a class="nav-link text-light" href="{{url_for('appointment')}}">
+                           
+                         <i class="fa fa-book-reader fa-2x"></i> Appointment
+                
+                                     <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"/></svg>  
+                        </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-light" href="{{url_for('manage')}}">
+                           
+                         <i class="fa fa-check fa-2x"></i> Manage
+                
+                                     <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"/></svg>  
+                        </a>
+                        </li>
+
+                        <li class="nav-item">
+                          <a class="nav-link text-light" href="">
+                           
+                         <i class="fa fa-ellipsis-h fa-2x"></i> Prescriptions
+                
+                                     <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"/></svg>  
+                        </a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                          <a class="nav-link text-light" href="{{url_for('change_profile')}}">
+              
+                          <i class="fa fa-user  fa-2x "></i> Profile
+                            <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"/></svg>  
+                        </a>
+                        </li>
+                      </ul>
+
+                </div>
+            </div>
+            <br><br>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <h3>Dashboard</h3>
+                <hr>
+                
+                
+            </main>
+        </div>
+
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   
+   
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+     
+      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    {% endblock %}
+
+  </body>
+  
+</html>
